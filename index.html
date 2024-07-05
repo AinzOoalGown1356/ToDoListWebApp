@@ -1,63 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="css.css" />
+  <link rel="stylesheet" type="text/css" href="css.css" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css.css">
   <title>Todo List</title>
-  <style>
-  </style>
 </head>
 <body>
   <div class="header">
-      <h1> Welcome to the To-Do list webapp!</h1>
-      <p id="welcomeMessage"></p> 
-      <div class="signup-link">
-        Not you? <a href="signin.html" id="signoutLink">Sign out</a>
+    <h1>Welcome to the To-Do list webapp!</h1>
+    <p id="welcomeMessage"></p> 
+    <div class="signup-link">
+      Not you? <a href="signin.html" id="signoutLink">Sign out</a>
     </div>
   </div>
- <div id="myDIV" class="header">
-  <h2><span id="userName"></span>'s To Do List</h2>
-  <input type="text" id="myInput" placeholder="What do you you need to do next??...">
-  <span onclick="newElement()" class="addBtn">Add</span>
-</div>
+  <div id="myDIV" class="header">
+    <h2><span id="userName"></span>'s To Do List</h2>
+    <input type="text" id="myInput" placeholder="What do you need to do next?...">
+    <span onclick="newElement()" class="addBtn">Add</span>
+  </div>
 
-<ul id="myUL">
-  <li>Hit the gym</li>
-  <li class="checked">Study </li>
-  <li>Buy eggs</li>
-  <li>Play counter-strike</li>
-</ul>
+  <ul id="myUL">
+    <!-- Tasks will be dynamically added here -->
+  </ul>
+
+  <script src="index.js"></script>
 </body>
-
-  <script>
-  userCreds = JSON.parse(localStorage.getItem("user-creds"));
-  userInfo = JSON.parse(localStorage.getItem("user-info"));
-
-  Signout = ()=>{
-    localStorage.removeItem("user-creds");
-    localStorage.removeItem("user-info");
-    window.location.href ="signin.html"
-  }
-
-  CheckCred = () => {
-    if (!localStorage.getItem("user-creds"))
-        window.location.href = "signin.html";
-    else {
-        document.getElementById("welcomeMessage").textContent = `You are currently logged in as user: ${userInfo.firstname}`;
-        document.getElementById("userName").textContent = userInfo.firstname;
-    }
-};
-
-  window.addEventListener('load', CheckCred);
-  signoutbutton.addEventListener('click', Signout);
-  signoutlink.addEventListener('click', Signout)
-
-  </script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-firestore.js"></script>
-  
-<script src="index.js"></script>
 </html>
